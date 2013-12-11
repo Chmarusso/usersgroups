@@ -44,7 +44,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0.beta'
+	gem "rspec-rails", "~> 2.14.0"
 end
 gem "devise"
-
+gem "factory_girl_rails", "~> 4.0"

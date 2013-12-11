@@ -3,5 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_and_belongs_to_many :groups, :uniq => true
+  has_and_belongs_to_many :groups, -> { uniq }
+
+  def is_in_group?(group)
+  	self.group_ids.include? group.id
+  end
 end
