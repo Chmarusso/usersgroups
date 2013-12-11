@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Group.create(:name => "Python developers")
+Group.create(:name => "PHP developers")
+Group.create(:name => "Ruby developers")
+Group.create(:name => "C# developers")
+
+3.times do |i|
+ user = User.new
+ user.email = "test#{i}@wp.pl"
+ user.password = "qwerty12"
+ user.password_confirmation = "qwerty12"
+ user.save
+end
