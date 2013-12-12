@@ -1,0 +1,22 @@
+<h1>User#manage groups</h1>
+<p>Find me in app/views/user/manage.html.erb</p>
+<h3>My groups</h3>
+<%= form_tag("/update_my_groups", method: "post") do %>
+	<% for group in @groups %>
+		<%= check_box_tag 'groups[]', group.id, current_user.is_in_group?(group) %>
+		<%= label_tag(:groups, group.name) %><br/>
+	<% end %>
+
+  <%= submit_tag("Submit") %>
+<% end %>
+<hr/>
+<h3>Invite to groups</h3>
+<%= form_tag("/invite_to_groups", method: "post") do %>
+	user: <%= select_tag 'user_id', options_for_select(@users.collect{ |u| [u.email, u.id] }) %><br/>
+	<% for group in @groups %>
+		<%= check_box_tag 'groups[]', group.id %>
+		<%= label_tag(:groups, group.name) %><br/>
+	<% end %>
+
+  <%= submit_tag("Submit") %>
+<% end %>

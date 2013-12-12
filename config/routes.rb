@@ -1,4 +1,7 @@
 Users::Application.routes.draw do
+  get "user/manage"
+  post "/update_my_groups" => "user#update"
+  post "invite_to_groups" => "user#invite"
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
