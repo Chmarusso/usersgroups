@@ -1,6 +1,11 @@
 == README
 
 bundle install
+rake db:migrate
 rake db:seed
+rails s
 
+
+test view: localhost:3000/user/manage
 test user: test0@wp.pl // qwerty12
+
